@@ -1,20 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "../components/navigation";
 import LayoutWrapper from "../styles/layout";
-import WeelkyRates from "../components/hotelComparison";
+// import WeelkyRates from "../components/hotelComparison";
 import WeeklyRates from "../components/hotelComparison";
-import ToggleOffIcon from "@material-ui/icons/ToggleOff";
+import DayRate from "../components/dailyRates";
+
+import Switch from "@material-ui/core/Switch";
+import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 
 const Layout = () => {
-  useEffect(() => {});
-  axios
-    .get(
-      "https://us-central1-stremlind-app.cloudfunctions.net/api/hotel/rate-comparison"
-    )
-    .then((response) => {
-      console.log(response);
-    });
+  const [rate, setRate] = useState([]);
+  useEffect(() => {
+    axios
+      .get(
+        "https://us-central1-stremlind-app.cloudfunctions.net/api/hotel/rate-comparison"
+      )
+      .then((response) => {
+        setRate(response.data);
+      });
+  }, [rate]);
+  const [toggleDailyOn, setToggleDailyOn] = useState(true);
+  // const [toggleWeeklyOff, setToggleWeeklyOff] = useState(true);
+
+  const toggleRate = () => {
+    setToggleDailyOn(false);
+  };
+
   return (
     <LayoutWrapper>
       <div className="sidebar">
@@ -45,18 +57,24 @@ const Layout = () => {
         <div>
           <ul>
             <li>
-              Hotel Rate Comparison <span>H</span>
+              Hotel Rate Comparison
+              <span>
+                <ArrowDropDownIcon />
+              </span>
             </li>
 
             <li>
               Weekly View{" "}
-              <span>
+              <span onClick={toggleRate}>
                 &nbsp;&nbsp;
-                <ToggleOffIcon />
+                <Switch />
               </span>
             </li>
           </ul>
-          <WeeklyRates />
+          {toggleDailyOn ? <DayRate /> : <WeeklyRates rate={rate} />}
+          {/* <WeeklyRates rate={rate} /> */}
+          <br />
+          {/* <DayRate /> */}
         </div>
       </div>
     </LayoutWrapper>

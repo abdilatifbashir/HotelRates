@@ -1,5 +1,4 @@
-import React from "react";
-// import WeeklyRatesSection from "../../styles/week-rate";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -12,47 +11,127 @@ import WeeklyRatesSection from "../../styles/week-rate";
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 650,
+    minWidth: 10,
   },
 });
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
+const WeeklyRates = ({ rate }) => {
+  const [rateLabels, setRateLabels] = useState([]);
+  const [rateBody, setRateBody] = useState([]);
+  useEffect(() => {
+    if (typeof rate.rateLabels !== "undefined") {
+      setRateLabels(rate.rateLabels);
+    }
 
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-];
-
-const WeeklyRates = () => {
+    if (typeof rate.rateBody !== "undefined") {
+      setRateBody(rate.rateBody);
+    }
+  }, [rate]);
   const classes = useStyles();
+  console.log(rate);
+  // const { rateLabels, rateBody } = rate;
+  console.log("ratebody", rateBody);
+  console.log("ratebody", rateLabels);
   return (
     <WeeklyRatesSection>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} style={{ width: 1257 }}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
+            {/* {rateLabels.map((label, index) => (
+              <TableRow key={index.toString()}>
+                <TableCell>`{label}</TableCell>
+              </TableRow>
+            ))} */}
             <TableRow>
-              <TableCell>Dessert (100g serving)</TableCell>
-              <TableCell align="right">Calories</TableCell>
-              <TableCell align="right">Fat&nbsp;(g)</TableCell>
-              <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-              <TableCell align="right">Protein&nbsp;(g)</TableCell>
+              {rateLabels.map((label) => (
+                <TableCell>{label}</TableCell>
+              ))}
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <TableRow key={row.name}>
+            {rateBody.map((hotelRate) => (
+              <TableRow key={hotelRate.name}>
                 <TableCell component="th" scope="row">
-                  {row.name}
+                  {hotelRate.name}
                 </TableCell>
-                <TableCell align="right">{row.calories}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
-                <TableCell align="right">{row.carbs}</TableCell>
-                <TableCell align="right">{row.protein}</TableCell>
+                <TableCell align="right">
+                  {hotelRate.day1 !== null &&
+                  typeof hotelRate.day1.otherPrice &&
+                  hotelRate.day1.compare !== "undefined" ? (
+                    <span>
+                      {hotelRate.day1.otherPrice}&nbsp;&nbsp;&nbsp;
+                      {hotelRate.day1.compare}
+                    </span>
+                  ) : (
+                    ""
+                  )}
+                </TableCell>
+                <TableCell align="right">
+                  {hotelRate.day2 !== null &&
+                  typeof hotelRate.day2.otherPrice !== "undefined" ? (
+                    <span>
+                      {hotelRate.day2.otherPrice}&nbsp;&nbsp;&nbsp;
+                      {hotelRate.day2.compare}
+                    </span>
+                  ) : (
+                    ""
+                  )}
+                </TableCell>
+                <TableCell align="right">
+                  {hotelRate.day3 !== null &&
+                  typeof hotelRate.day3.otherPrice !== "undefined" ? (
+                    <span>
+                      {hotelRate.day3.otherPrice}&nbsp;&nbsp;&nbsp;
+                      {hotelRate.day3.compare}
+                    </span>
+                  ) : (
+                    ""
+                  )}
+                </TableCell>
+                <TableCell align="right">
+                  {hotelRate.day4 !== null &&
+                  typeof hotelRate.day4.otherPrice !== "undefined" ? (
+                    <span>
+                      {hotelRate.day4.otherPrice}&nbsp;&nbsp;&nbsp;
+                      {hotelRate.day4.compare}
+                    </span>
+                  ) : (
+                    ""
+                  )}
+                </TableCell>
+                <TableCell align="right">
+                  {hotelRate.day5 !== null &&
+                  typeof hotelRate.day5.otherPrice !== "undefined" ? (
+                    <span>
+                      {hotelRate.day5.otherPrice}&nbsp;&nbsp;&nbsp;
+                      {hotelRate.day5.compare}
+                    </span>
+                  ) : (
+                    ""
+                  )}
+                </TableCell>
+                <TableCell align="right">
+                  {hotelRate.day6 !== null &&
+                  typeof hotelRate.day6.otherPrice !== "undefined" ? (
+                    <span>
+                      {hotelRate.day6.otherPrice}&nbsp;&nbsp;&nbsp;
+                      {hotelRate.day6.compare}
+                    </span>
+                  ) : (
+                    ""
+                  )}
+                </TableCell>
+                <TableCell align="right">
+                  {hotelRate.day7 !== null &&
+                  typeof hotelRate.day7.otherPrice !== "undefined" ? (
+                    <span>
+                      {hotelRate.day7.otherPrice}&nbsp;&nbsp;&nbsp;
+                      {hotelRate.day7.compare}
+                    </span>
+                  ) : (
+                    ""
+                  )}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
