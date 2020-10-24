@@ -18,16 +18,19 @@ flex-direction-row;
         margin-top:60px;
     }
   }
-  .header_rates_section{
-      display:flex;
-      flex-direction:column;
-  }
+//   .header_rates_section{
+//       display:flex;
+//       flex-direction:column;
+//   }
+  
 
 
 
     // Navigation and rates section
 
     .header_rates_section{
+        display:flex;
+      flex-direction:column;
         div{
             ul{
                 li:nth-child(1){
@@ -47,6 +50,18 @@ flex-direction-row;
                     list-style-type:none;
                 }
             }
+        }
+
+        .offers{
+            margin-top:20px;
+            display:flex;
+            span:nth-child(1){
+                margin-left:32px;
+            }
+            span:nth-child(2){
+                margin-left:35px;
+            }
+            
         }
     }
 

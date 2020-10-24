@@ -4,10 +4,18 @@ import Header from "../components/navigation";
 import LayoutWrapper from "../styles/layout";
 // import WeelkyRates from "../components/hotelComparison";
 import WeeklyRates from "../components/hotelComparison";
+import OverViewBanner from "../components/overViewTitle";
 import DayRate from "../components/dailyRates";
-
 import Switch from "@material-ui/core/Switch";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import PaletteIcon from "@material-ui/icons/Palette";
+import AccessAlarmsIcon from "@material-ui/icons/AccessAlarms";
+import AssignmentTurnedInIcon from "@material-ui/icons/AssignmentTurnedIn";
+import BuildIcon from "@material-ui/icons/Build";
+import KitchenIcon from "@material-ui/icons/Kitchen";
+import RoomRate from "../components/roomTypes";
+import OfferRate from "../components/offers";
+import { dailyRates } from "../fixtures/today";
 
 const Layout = () => {
   const [rate, setRate] = useState([]);
@@ -21,10 +29,13 @@ const Layout = () => {
       });
   }, [rate]);
   const [toggleDailyOn, setToggleDailyOn] = useState(true);
-  // const [toggleWeeklyOff, setToggleWeeklyOff] = useState(true);
 
   const toggleRate = () => {
-    setToggleDailyOn(false);
+    if (toggleDailyOn) {
+      setToggleDailyOn(false);
+    } else {
+      setToggleDailyOn(true);
+    }
   };
 
   return (
@@ -35,25 +46,26 @@ const Layout = () => {
         <ul>
           <li>
             {" "}
-            <img src="/diameter.png" />
+            <PaletteIcon />
           </li>
 
           <li>
-            <img src="diameter.png" />
+            <AccessAlarmsIcon style={{ fill: "#D3D3D3" }} />
           </li>
           <li>
-            <img src="diameter.png" />
+            <AssignmentTurnedInIcon style={{ fill: "#D3D3D3" }} />
           </li>
           <li>
-            <img src="/diameter.png" />
+            <BuildIcon style={{ fill: "#D3D3D3" }} />
           </li>
           <li>
-            <img src="diameter.png" />
+            <KitchenIcon style={{ fill: "#D3D3D3" }} />
           </li>
         </ul>
       </div>
       <div className="header_rates_section">
         <Header />
+        <OverViewBanner />
         <div>
           <ul>
             <li>
@@ -71,10 +83,20 @@ const Layout = () => {
               </span>
             </li>
           </ul>
-          {toggleDailyOn ? <DayRate /> : <WeeklyRates rate={rate} />}
-          {/* <WeeklyRates rate={rate} /> */}
-          <br />
-          {/* <DayRate /> */}
+        </div>
+        {toggleDailyOn ? (
+          <DayRate dailyRates={dailyRates} />
+        ) : (
+          <WeeklyRates rate={rate} />
+        )}
+        <div className="offers">
+          <span>
+            <RoomRate />{" "}
+          </span>
+
+          <span>
+            <OfferRate />
+          </span>
         </div>
       </div>
     </LayoutWrapper>

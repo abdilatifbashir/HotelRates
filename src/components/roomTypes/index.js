@@ -7,7 +7,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import DayRateContainer from "../../styles/day-rate";
+import RoomRateContainer from "../../styles/room-types";
 
 const useStyles = makeStyles({
   table: {
@@ -15,40 +15,38 @@ const useStyles = makeStyles({
   },
 });
 
-const DayRate = ({ dailyRates }) => {
-  const { labelRate, todayBodyRate } = dailyRates;
-  console.log(labelRate);
+function createData(name, calories, fat, carbs, protein) {
+  return { name, calories, fat, carbs, protein };
+}
+
+const rows = [
+  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
+  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
+  createData("Eclair", 262, 16.0, 24, 6.0),
+  createData("Cupcake", 305, 3.7, 67, 4.3),
+  createData("Gingerbread", 356, 16.0, 49, 3.9),
+];
+
+const RoomRate = () => {
   const classes = useStyles();
   return (
-    <DayRateContainer>
+    <RoomRateContainer>
       <div>
-        <TableContainer component={Paper} style={{ width: 1257 }}>
+        <TableContainer
+          component={Paper}
+          style={{ width: 600, height: 400, background: "#FFFFFF" }}
+        >
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
               <TableRow>
-                {labelRate.map((label, index) => (
-                  <TableCell key={index.toString()}>{label}</TableCell>
-                ))}
-                {/* <TableCell></TableCell> */}
+                <TableCell>Dessert (100g serving)</TableCell>
+                <TableCell align="right">Calories</TableCell>
+                <TableCell align="right">Fat&nbsp;(g)</TableCell>
+                <TableCell align="right">Carbs&nbsp;(g)</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {todayBodyRate?.map((current) => (
-                <TableRow key={current.name}>
-                  <TableCell align="right">
-                    {current !== "null" && typeof current !== "undefined"
-                      ? current
-                      : ""}
-                  </TableCell>
-                  <TableCell align="right">
-                    {current.todayRate !== "null" &&
-                    typeof current.todayRate !== "undefined"
-                      ? current
-                      : ""}
-                  </TableCell>
-                </TableRow>
-              ))}
-              {/* {rows.map((row) => (
+              {rows.map((row) => (
                 <TableRow key={row.name}>
                   <TableCell component="th" scope="row">
                     {row.name}
@@ -58,12 +56,12 @@ const DayRate = ({ dailyRates }) => {
                   <TableCell align="right">{row.carbs}</TableCell>
                   <TableCell align="right">{row.protein}</TableCell>
                 </TableRow>
-              ))} */}
+              ))}
             </TableBody>
           </Table>
         </TableContainer>
       </div>
-    </DayRateContainer>
+    </RoomRateContainer>
   );
 };
-export default DayRate;
+export default RoomRate;

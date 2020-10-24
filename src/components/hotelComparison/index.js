@@ -59,8 +59,18 @@ const WeeklyRates = ({ rate }) => {
                   typeof hotelRate.day1.otherPrice &&
                   hotelRate.day1.compare !== "undefined" ? (
                     <span>
-                      {hotelRate.day1.otherPrice}&nbsp;&nbsp;&nbsp;
-                      {hotelRate.day1.compare}
+                      {`$${hotelRate.day1.otherPrice}`}&nbsp;&nbsp;&nbsp;
+                      {hotelRate.day1.compare > 0 ? (
+                        <span className="greater">
+                          {`$${hotelRate.day1.compare}`}
+                        </span>
+                      ) : hotelRate.day1.compare == 0 ? (
+                        <span className="equal">{`$${hotelRate.day1.compare}`}</span>
+                      ) : hotelRate.day1.compare < 0 ? (
+                        <span className="less">{`$${hotelRate.day1.compare}`}</span>
+                      ) : (
+                        ""
+                      )}
                     </span>
                   ) : (
                     ""
@@ -70,8 +80,18 @@ const WeeklyRates = ({ rate }) => {
                   {hotelRate.day2 !== null &&
                   typeof hotelRate.day2.otherPrice !== "undefined" ? (
                     <span>
-                      {hotelRate.day2.otherPrice}&nbsp;&nbsp;&nbsp;
-                      {hotelRate.day2.compare}
+                      {`$${hotelRate.day2.otherPrice}`}&nbsp;&nbsp;&nbsp;
+                      {hotelRate.day2.compare > 0 ? (
+                        <span className="greater">
+                          {`$${hotelRate.day2.compare}`}
+                        </span>
+                      ) : hotelRate.day2.compare == 0 ? (
+                        <span className="equal">{`$${hotelRate.day2.compare}`}</span>
+                      ) : hotelRate.day2.compare < 0 ? (
+                        <span className="less">{`$${hotelRate.day1.compare}`}</span>
+                      ) : (
+                        ""
+                      )}
                     </span>
                   ) : (
                     ""
@@ -81,8 +101,18 @@ const WeeklyRates = ({ rate }) => {
                   {hotelRate.day3 !== null &&
                   typeof hotelRate.day3.otherPrice !== "undefined" ? (
                     <span>
-                      {hotelRate.day3.otherPrice}&nbsp;&nbsp;&nbsp;
-                      {hotelRate.day3.compare}
+                      {`$${hotelRate.day3.otherPrice}`}&nbsp;&nbsp;&nbsp;
+                      {hotelRate.day3.compare > 0 ? (
+                        <span className="greater">
+                          {`$${hotelRate.day3.compare}`}
+                        </span>
+                      ) : hotelRate.day3.compare == 0 ? (
+                        <span className="equal">{`$${hotelRate.day3.compare}`}</span>
+                      ) : hotelRate.day3.compare < 0 ? (
+                        <span className="less">{`$${hotelRate.day3.compare}`}</span>
+                      ) : (
+                        ""
+                      )}
                     </span>
                   ) : (
                     ""
@@ -92,8 +122,18 @@ const WeeklyRates = ({ rate }) => {
                   {hotelRate.day4 !== null &&
                   typeof hotelRate.day4.otherPrice !== "undefined" ? (
                     <span>
-                      {hotelRate.day4.otherPrice}&nbsp;&nbsp;&nbsp;
-                      {hotelRate.day4.compare}
+                      {`$${hotelRate.day4.otherPrice}`}&nbsp;&nbsp;&nbsp;
+                      {hotelRate.day4.compare > 0 ? (
+                        <span className="greater">
+                          {`$${hotelRate.day4.compare}`}
+                        </span>
+                      ) : hotelRate.day4.compare == 0 ? (
+                        <span className="equal">{`$${hotelRate.day4.compare}`}</span>
+                      ) : hotelRate.day3.compare < 0 ? (
+                        <span className="less">{`$${hotelRate.day4.compare}`}</span>
+                      ) : (
+                        ""
+                      )}
                     </span>
                   ) : (
                     ""
@@ -103,8 +143,18 @@ const WeeklyRates = ({ rate }) => {
                   {hotelRate.day5 !== null &&
                   typeof hotelRate.day5.otherPrice !== "undefined" ? (
                     <span>
-                      {hotelRate.day5.otherPrice}&nbsp;&nbsp;&nbsp;
-                      {hotelRate.day5.compare}
+                      {`$${hotelRate.day5.otherPrice}`}&nbsp;&nbsp;&nbsp;
+                      {hotelRate.day5.compare > 0 ? (
+                        <span className="greater">
+                          {`$${hotelRate.day5.compare}`}
+                        </span>
+                      ) : hotelRate.day5.compare == 0 ? (
+                        <span className="equal">{`$${hotelRate.day5.compare}`}</span>
+                      ) : hotelRate.day5.compare < 0 ? (
+                        <span className="less">{`$${hotelRate.day5.compare}`}</span>
+                      ) : (
+                        ""
+                      )}
                     </span>
                   ) : (
                     ""
@@ -114,8 +164,18 @@ const WeeklyRates = ({ rate }) => {
                   {hotelRate.day6 !== null &&
                   typeof hotelRate.day6.otherPrice !== "undefined" ? (
                     <span>
-                      {hotelRate.day6.otherPrice}&nbsp;&nbsp;&nbsp;
-                      {hotelRate.day6.compare}
+                      {`$${hotelRate.day6.otherPrice}`}&nbsp;&nbsp;&nbsp;
+                      {hotelRate.day6.compare > 0 ? (
+                        <span className="greater">
+                          {`$${hotelRate.day6.compare}`}
+                        </span>
+                      ) : hotelRate.day6.compare == 0 ? (
+                        <span className="equal">{`$${hotelRate.day6.compare}`}</span>
+                      ) : hotelRate.day6.compare < 0 ? (
+                        <span className="less">{`$${hotelRate.day6.compare}`}</span>
+                      ) : (
+                        ""
+                      )}
                     </span>
                   ) : (
                     ""
@@ -125,8 +185,18 @@ const WeeklyRates = ({ rate }) => {
                   {hotelRate.day7 !== null &&
                   typeof hotelRate.day7.otherPrice !== "undefined" ? (
                     <span>
-                      {hotelRate.day7.otherPrice}&nbsp;&nbsp;&nbsp;
-                      {hotelRate.day7.compare}
+                      {`$${hotelRate.day7.otherPrice}`}&nbsp;&nbsp;&nbsp;
+                      {hotelRate.day7.compare > 0 ? (
+                        <span className="greater">
+                          {`$${hotelRate.day7.compare}`}
+                        </span>
+                      ) : hotelRate.day7.compare == 0 ? (
+                        <span className="equal">{`$${hotelRate.day7.compare}`}</span>
+                      ) : hotelRate.day7.compare < 0 ? (
+                        <span className="less">{`$${hotelRate.day7.compare}`}</span>
+                      ) : (
+                        ""
+                      )}
                     </span>
                   ) : (
                     ""
