@@ -37,7 +37,7 @@ const RoomRate = ({ roomDetails }) => {
             <TableBody>
               {RateEachType.map((room) => (
                 <TableRow key={room.type}>
-                  <TableCell>{`$${room.type}`}</TableCell>
+                  <TableCell>{room.type}</TableCell>
                   <TableCell>{`$${room.currentYear}`}</TableCell>
                   <TableCell>{`$${room.lastYear}`}</TableCell>
                   <TableCell>{`$${room.difference}`}</TableCell>

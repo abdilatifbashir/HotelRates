@@ -34,8 +34,8 @@ const OfferRate = ({ offersDetails }) => {
             </TableHead>
             <TableBody>
               {offerType.map((offer) => (
-                <TableRow key={`$${offer.type}`}>
-                  <TableCell>{`$${offer.type}`}</TableCell>
+                <TableRow key={offer.type}>
+                  <TableCell>{offer.type}</TableCell>
                   <TableCell>{`$${offer.lowest}`}</TableCell>
                   <TableCell>{`$${offer.standard}`}</TableCell>
                 </TableRow>
