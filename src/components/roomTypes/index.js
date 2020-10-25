@@ -15,46 +15,32 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-];
-
-const RoomRate = () => {
+const RoomRate = ({ roomDetails }) => {
   const classes = useStyles();
+  const { labelRate, RateEachType } = roomDetails;
   return (
     <RoomRateContainer>
       <div>
         <TableContainer
           component={Paper}
-          style={{ width: 600, height: 400, background: "#FFFFFF" }}
+          style={{ width: 600, height: 350, background: "#FFFFFF" }}
         >
+          <h5>Our Rates Today</h5>
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell>Dessert (100g serving)</TableCell>
-                <TableCell align="right">Calories</TableCell>
-                <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                <TableCell align="right">Carbs&nbsp;(g)</TableCell>
+                {labelRate.map((label) => (
+                  <TableCell>{label}</TableCell>
+                ))}
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
-                <TableRow key={row.name}>
-                  <TableCell component="th" scope="row">
-                    {row.name}
-                  </TableCell>
-                  <TableCell align="right">{row.calories}</TableCell>
-                  <TableCell align="right">{row.fat}</TableCell>
-                  <TableCell align="right">{row.carbs}</TableCell>
-                  <TableCell align="right">{row.protein}</TableCell>
+              {RateEachType.map((room) => (
+                <TableRow key={room.type}>
+                  <TableCell>{room.type}</TableCell>
+                  <TableCell>{room.currentYear}</TableCell>
+                  <TableCell>{room.lastYear}</TableCell>
+                  <TableCell>{room.difference}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

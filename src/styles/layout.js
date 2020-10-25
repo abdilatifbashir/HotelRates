@@ -12,16 +12,12 @@ flex-direction-row;
       display: flex;
       flex-direction: column;
       list-style-type: none;
-    //   justify-content: space-between;
     }
     li{
         margin-top:60px;
     }
   }
-//   .header_rates_section{
-//       display:flex;
-//       flex-direction:column;
-//   }
+
   
 
 

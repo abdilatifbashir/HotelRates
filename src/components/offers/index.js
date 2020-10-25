@@ -27,31 +27,29 @@ const rows = [
   createData("Gingerbread", 356, 16.0, 49, 3.9),
 ];
 
-const OfferRate = () => {
+const OfferRate = ({ offersDetails }) => {
   const classes = useStyles();
+  const { labelRate, offerType } = offersDetails;
+  console.log(offerType);
   return (
     <OfferRateContainer>
       <div>
-        <TableContainer component={Paper} style={{ width: 600, height: 400 }}>
+        <TableContainer component={Paper} style={{ width: 600, height: 350 }}>
+          <h5>Rates We can Offer</h5>
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell>Dessert (100g serving)</TableCell>
-                <TableCell align="right">Calories</TableCell>
-                <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                <TableCell align="right">Carbs&nbsp;(g)</TableCell>
+                {labelRate.map((label, index) => (
+                  <TableCell key={index.toString()}>{label}</TableCell>
+                ))}
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
-                <TableRow key={row.name}>
-                  <TableCell component="th" scope="row">
-                    {row.name}
-                  </TableCell>
-                  <TableCell align="right">{row.calories}</TableCell>
-                  <TableCell align="right">{row.fat}</TableCell>
-                  <TableCell align="right">{row.carbs}</TableCell>
-                  <TableCell align="right">{row.protein}</TableCell>
+              {offerType.map((offer) => (
+                <TableRow key={offer.type}>
+                  <TableCell>{offer.type}</TableCell>
+                  <TableCell>{offer.lowest}</TableCell>
+                  <TableCell>{offer.standard}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

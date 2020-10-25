@@ -6,7 +6,7 @@ const Header = () => {
     <NavSection>
       <div>
         <ul>
-          <li>Overview</li>
+          <li className="over-view">Overview</li>
           <li>Announcements</li>
           <li>Task & Notes</li>
           <li>Daily Checklist</li>

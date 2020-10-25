@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "../components/navigation";
 import LayoutWrapper from "../styles/layout";
-// import WeelkyRates from "../components/hotelComparison";
 import WeeklyRates from "../components/hotelComparison";
 import OverViewBanner from "../components/overViewTitle";
 import DayRate from "../components/dailyRates";
@@ -16,6 +15,9 @@ import KitchenIcon from "@material-ui/icons/Kitchen";
 import RoomRate from "../components/roomTypes";
 import OfferRate from "../components/offers";
 import { dailyRates } from "../fixtures/today";
+import { roomDetails } from "../fixtures/roomTypeFixture";
+import { offersDetails } from "../fixtures/offersFixture";
+import OverViewCard from "../components/card";
 
 const Layout = () => {
   const [rate, setRate] = useState([]);
@@ -66,7 +68,10 @@ const Layout = () => {
       <div className="header_rates_section">
         <Header />
         <OverViewBanner />
-        <div>
+        <OverViewCard />
+        <br />
+        <OverViewCard />
+        <div className="weekly-view">
           <ul>
             <li>
               Hotel Rate Comparison
@@ -91,11 +96,11 @@ const Layout = () => {
         )}
         <div className="offers">
           <span>
-            <RoomRate />{" "}
+            <RoomRate roomDetails={roomDetails} />{" "}
           </span>
 
           <span>
-            <OfferRate />
+            <OfferRate offersDetails={offersDetails} />
           </span>
         </div>
       </div>

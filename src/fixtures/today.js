@@ -6,14 +6,14 @@ export const dailyRates = {
     "DIFFERENCE",
     "OUR RATE IS",
   ],
-  todyRateBody: [
+  todayRateBody: [
     {
       name: "Best western canogo park",
       todayRate: 120,
       competitorRate: 120,
       difference: 0,
       ourRate: "Even",
-      color: "#FFC75F",
+      color: "even",
     },
     {
       name: "Hampto Inn Woodland Hills",
@@ -21,7 +21,7 @@ export const dailyRates = {
       competitorRate: 140,
       difference: -100,
       ourRate: "Lower",
-      color: "#1EB972",
+      color: "lower",
     },
     {
       name: "Exteded Stay",
@@ -29,7 +29,7 @@ export const dailyRates = {
       competitorRate: 220,
       difference: -100,
       ourRate: "Lower",
-      color: "#1EB972",
+      color: "lower",
     },
     {
       name: "The Knights Inn",
@@ -37,7 +37,7 @@ export const dailyRates = {
       competitorRate: 100,
       difference: 20,
       ourRate: "Higher",
-      color: "#E94F30",
+      color: "higher",
     },
     {
       name: "Exteded Stay America",
@@ -45,7 +45,7 @@ export const dailyRates = {
       competitorRate: 100,
       difference: 20,
       ourRate: "Higher",
-      color: "#E94F30",
+      color: "higher",
     },
 
     {
@@ -54,7 +54,7 @@ export const dailyRates = {
       competitorRate: 100,
       difference: 20,
       ourRate: "Higher",
-      color: "#E94F30",
+      color: "higher",
     },
 
     {
@@ -63,7 +63,7 @@ export const dailyRates = {
       competitorRate: 100,
       difference: 20,
       ourRate: "Higher",
-      color: "#E94F30",
+      color: "higher",
     },
     {
       name: "Courtyard by Marriot",
@@ -71,7 +71,7 @@ export const dailyRates = {
       competitorRate: 100,
       difference: 20,
       ourRate: "Higher",
-      color: "#E94F30",
+      color: "higher",
     },
     {
       name: "Holiday Inn",
@@ -79,7 +79,7 @@ export const dailyRates = {
       competitorRate: 100,
       difference: 20,
       ourRate: "Higher",
-      color: "#E94F30",
+      color: "higher",
     },
   ],
 };

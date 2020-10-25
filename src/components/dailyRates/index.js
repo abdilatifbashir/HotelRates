@@ -16,49 +16,32 @@ const useStyles = makeStyles({
 });
 
 const DayRate = ({ dailyRates }) => {
-  const { labelRate, todayBodyRate } = dailyRates;
-  console.log(labelRate);
+  const { labelRate, todayRateBody } = dailyRates;
   const classes = useStyles();
   return (
     <DayRateContainer>
       <div>
-        <TableContainer component={Paper} style={{ width: 1257 }}>
+        <TableContainer component={Paper} style={{ width: 1250, height: 550 }}>
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
               <TableRow>
                 {labelRate.map((label, index) => (
                   <TableCell key={index.toString()}>{label}</TableCell>
                 ))}
-                {/* <TableCell></TableCell> */}
               </TableRow>
             </TableHead>
             <TableBody>
-              {todayBodyRate?.map((current) => (
-                <TableRow key={current.name}>
-                  <TableCell align="right">
-                    {current !== "null" && typeof current !== "undefined"
-                      ? current
-                      : ""}
-                  </TableCell>
-                  <TableCell align="right">
-                    {current.todayRate !== "null" &&
-                    typeof current.todayRate !== "undefined"
-                      ? current
-                      : ""}
+              {todayRateBody.map((current) => (
+                <TableRow>
+                  <TableCell align="left">{current.name}</TableCell>
+                  <TableCell align="left">{`$${current.todayRate}`}</TableCell>
+                  <TableCell align="left">{`$${current.competitorRate}`}</TableCell>
+                  <TableCell align="left">{`$${current.difference}`}</TableCell>
+                  <TableCell align="left" className={current.color}>
+                    {current.ourRate}
                   </TableCell>
                 </TableRow>
               ))}
-              {/* {rows.map((row) => (
-                <TableRow key={row.name}>
-                  <TableCell component="th" scope="row">
-                    {row.name}
-                  </TableCell>
-                  <TableCell align="right">{row.calories}</TableCell>
-                  <TableCell align="right">{row.fat}</TableCell>
-                  <TableCell align="right">{row.carbs}</TableCell>
-                  <TableCell align="right">{row.protein}</TableCell>
-                </TableRow>
-              ))} */}
             </TableBody>
           </Table>
         </TableContainer>
