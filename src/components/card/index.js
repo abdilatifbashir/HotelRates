@@ -1,6 +1,5 @@
 import React from "react";
 import CardContainer from "../../styles/card";
-
 import PermScanWifiIcon from "@material-ui/icons/PermScanWifi";
 import EventNoteIcon from "@material-ui/icons/EventNote";
 import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";

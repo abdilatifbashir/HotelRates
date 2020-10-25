@@ -7,7 +7,7 @@ The following instructions will get a copy of stremlind app up and running on yo
 #### Pre-requisites
 
 1. [reactjs](https://reactjs.org/)
-2. [antd](https://material-ui.com/)
+2. [material-ui](https://material-ui.com/)
 
 ### Running the application
 

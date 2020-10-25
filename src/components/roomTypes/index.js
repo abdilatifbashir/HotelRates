@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -37,10 +37,10 @@ const RoomRate = ({ roomDetails }) => {
             <TableBody>
               {RateEachType.map((room) => (
                 <TableRow key={room.type}>
-                  <TableCell>{room.type}</TableCell>
-                  <TableCell>{room.currentYear}</TableCell>
-                  <TableCell>{room.lastYear}</TableCell>
-                  <TableCell>{room.difference}</TableCell>
+                  <TableCell>{`$${room.type}`}</TableCell>
+                  <TableCell>{`$${room.currentYear}`}</TableCell>
+                  <TableCell>{`$${room.lastYear}`}</TableCell>
+                  <TableCell>{`$${room.difference}`}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
