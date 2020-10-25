@@ -8,6 +8,7 @@ The following instructions will get a copy of stremlind app up and running on yo
 
 1. [reactjs](https://reactjs.org/)
 2. [material-ui](https://material-ui.com/)
+3. [styled-components](https://styled-components.com/)
 
 ### Running the application
 
