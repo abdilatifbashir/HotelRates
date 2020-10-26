@@ -11,6 +11,9 @@ const DayRateContainer = styled.div`
   .even {
     color: #ffc75f;
   }
+  TableCell {
+    height: auto !important;
+  }
 `;
 
 export default DayRateContainer;

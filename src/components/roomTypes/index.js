@@ -38,9 +38,29 @@ const RoomRate = ({ roomDetails }) => {
               {RateEachType.map((room) => (
                 <TableRow key={room.type}>
                   <TableCell>{room.type}</TableCell>
-                  <TableCell>{`$${room.currentYear}`}</TableCell>
-                  <TableCell>{`$${room.lastYear}`}</TableCell>
-                  <TableCell>{`$${room.difference}`}</TableCell>
+                  <TableCell>
+                    {room.currentYear >= 0 ? (
+                      <span>{`$${room.currentYear}`}</span>
+                    ) : (
+                      <span>{`-$${room.currentYear * -1}`}</span>
+                    )}
+                  </TableCell>
+                  <TableCell>
+                    {room.currentYear > 0 ? (
+                      <span>{`$${room.lastYear}`}</span>
+                    ) : (
+                      <span>{`-$${room.lastYear * -1}`}</span>
+                    )}
+                  </TableCell>
+                  {/* <TableCell>{`$${room.difference}`}</TableCell> */}
+                  <TableCell>
+                    {" "}
+                    {room.difference >= 0 ? (
+                      <span>{`$${room.difference}`}</span>
+                    ) : (
+                      <span>{`-$${room.difference * -1}`}</span>
+                    )}
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>

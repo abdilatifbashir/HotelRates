@@ -33,7 +33,7 @@ const DayRate = ({ dailyRates }) => {
             <TableBody>
               {todayRateBody.map((current) => (
                 <TableRow>
-                  <TableCell align="left">{current.name}</TableCell>
+                  <TableCell align="left" >{current.name}</TableCell>
                   <TableCell align="left">{`$${current.todayRate}`}</TableCell>
                   <TableCell align="left">{`$${current.competitorRate}`}</TableCell>
                   <TableCell align="left">{`$${current.difference}`}</TableCell>
